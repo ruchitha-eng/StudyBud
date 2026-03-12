@@ -56,15 +56,8 @@ const NotesPanel = () => {
           <button className="h-9 px-3.5 rounded-lg bg-muted text-muted-foreground text-xs font-medium flex items-center gap-1.5 hover:bg-muted/80 transition-colors">
             <Clock className="w-3.5 h-3.5" /> Add Timestamp
           </button>
-          <button className="h-9 px-3.5 rounded-lg bg-muted text-muted-foreground text-xs font-medium flex items-center gap-1.5 hover:bg-muted/80 transition-colors">
-            <Pause className="w-3.5 h-3.5" /> Pause & Note
-          </button>
-          <button
-            onClick={saveNotes}
-            className="h-9 px-3.5 rounded-lg gradient-primary text-primary-foreground text-xs font-medium flex items-center gap-1.5 transition-transform hover:scale-[1.03] active:scale-[0.97]"
-          >
-            <Save className="w-3.5 h-3.5" /> Save Notes
-          </button>
+         
+          
         </div>
       </div>
 
@@ -88,6 +81,12 @@ const NotesPanel = () => {
           ))}
         </AnimatePresence>
       </div>
+      <button
+            onClick={saveNotes}
+            className="h-9 px-3.5 rounded-lg gradient-primary text-primary-foreground text-xs font-medium flex items-center gap-1.5 transition-transform hover:scale-[1.03] active:scale-[0.97]"
+          >
+            <Save className="w-3.5 h-3.5" /> Save Notes
+          </button>
     </div>
   );
 };

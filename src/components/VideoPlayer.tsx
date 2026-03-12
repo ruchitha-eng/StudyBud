@@ -51,7 +51,7 @@ const VideoPlayer = ({ onGenerateSummary, onGenerateQuiz }: VideoPlayerProps) =>
           onClick={handleLoadVideo}
           className="h-12 px-5 rounded-lg gradient-primary text-primary-foreground font-medium text-sm flex items-center gap-2 transition-transform hover:scale-[1.03] active:scale-[0.97]"
         >
-          <Play className="w-4 h-4" /> Load
+          <Play className="w-4 h-4" />Generate
         </button>
       </div>
 

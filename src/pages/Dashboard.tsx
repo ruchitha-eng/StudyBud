@@ -109,53 +109,10 @@ const Dashboard = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12 pb-24 md:pb-12">
-      {/* Header */}
-      <motion.div {...fadeUp}>
-        <h1 className="text-3xl font-bold mb-2">Dashboard</h1>
-        <p className="text-muted-foreground mb-8">Your learning history, stats, and saved notes.</p>
-      </motion.div>
+     
 
-      {/* ── Motivational Widget ── */}
-      <motion.div
-        {...fadeUp}
-        className="mb-8 gradient-primary rounded-2xl p-5 flex items-center gap-4 text-primary-foreground"
-      >
-        <Sparkles className="w-8 h-8 shrink-0 opacity-90" />
-        <div>
-          <p className="font-bold text-lg leading-tight">
-            You are on a {streakDays} day learning streak. Keep going! 🔥
-          </p>
-          <p className="text-sm opacity-80 mt-0.5">
-            Consistency is the key to mastery. Watch a video today to extend your streak.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* ── Stats Row ── */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {[
-          { label: "Study Streak", value: `${streakDays} days`, icon: Flame, accent: "text-orange-500 bg-orange-500/10" },
-          { label: "Videos Watched", value: "24", icon: Video, accent: "text-primary bg-primary/10" },
-          { label: "Notes Created", value: "87", icon: StickyNote, accent: "text-accent bg-accent/10" },
-          { label: "Study Hours", value: "18.5 h", icon: Timer, accent: "text-emerald-500 bg-emerald-500/10" },
-        ].map((stat, i) => (
-          <motion.div
-            key={stat.label}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.06, duration: 0.5, ease }}
-            className="bg-card rounded-2xl shadow-card p-5 flex items-center gap-4"
-          >
-            <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${stat.accent}`}>
-              <stat.icon className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="text-2xl font-bold leading-none">{stat.value}</p>
-              <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+     
+    
 
       {/* ── Quick Actions ── */}
       <motion.div {...fadeUp} className="mb-8">
@@ -164,7 +121,7 @@ const Dashboard = () => {
           {[
             { label: "Add YouTube Video", icon: Plus, action: () => navigate("/home") },
             { label: "Create Manual Notes", icon: NotebookPen, action: () => navigate("/home") },
-            { label: "View All Notes", icon: Eye, action: () => setTab("notes") },
+           
           ].map((btn) => (
             <button
               key={btn.label}
@@ -178,109 +135,14 @@ const Dashboard = () => {
         </div>
       </motion.div>
 
-      {/* ── Two-column: Weekly Chart + Recent Activity ── */}
-      <div className="grid lg:grid-cols-2 gap-6 mb-8">
-        {/* Weekly Study Progress */}
-        <motion.div {...fadeUp} className="bg-card rounded-2xl shadow-card p-6">
-          <div className="flex items-center gap-2 mb-4">
-            <TrendingUp className="w-5 h-5 text-primary" />
-            <h2 className="font-bold text-lg">Weekly Study Progress</h2>
-          </div>
-          <ChartContainer config={chartConfig} className="h-[220px] w-full">
-            <BarChart data={weeklyData} barGap={4}>
-              <XAxis dataKey="day" tickLine={false} axisLine={false} fontSize={12} />
-              <YAxis tickLine={false} axisLine={false} fontSize={12} width={28} />
-              <ChartTooltip content={<ChartTooltipContent />} />
-              <Bar dataKey="videos" fill="var(--color-videos)" radius={[6, 6, 0, 0]} barSize={16} />
-              <Bar dataKey="notes" fill="var(--color-notes)" radius={[6, 6, 0, 0]} barSize={16} />
-            </BarChart>
-          </ChartContainer>
-        </motion.div>
-
-        {/* Recent Activity */}
-        <motion.div {...fadeUp} className="bg-card rounded-2xl shadow-card p-6">
-          <div className="flex items-center gap-2 mb-4">
-            <Clock className="w-5 h-5 text-primary" />
-            <h2 className="font-bold text-lg">Recent Activity</h2>
-          </div>
-          <div className="space-y-3">
-            {recentActivity.map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <item.icon className="w-4 h-4 text-primary" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm leading-snug">{item.text}</p>
-                  <p className="text-xs text-muted-foreground">{item.time}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-
-      {/* ── Saved Videos ── */}
-      {bookmarks.length > 0 && (
-        <motion.div {...fadeUp} className="mb-8">
-          <div className="flex items-center gap-2 mb-4">
-            <BookmarkCheck className="w-5 h-5 text-primary" />
-            <h2 className="font-bold text-lg">Saved Videos</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {bookmarks.map((video) => (
-              <div key={video.id} className="bg-card rounded-2xl shadow-card overflow-hidden hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-200">
-                <div className="aspect-video bg-muted">
-                  <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover" />
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-sm mb-0.5 truncate">{video.title}</h3>
-                  <p className="text-xs text-muted-foreground mb-3">{video.channel}</p>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => navigate("/home")}
-                      className="flex-1 h-8 rounded-lg bg-primary/10 text-primary text-xs font-medium flex items-center justify-center gap-1.5 hover:bg-primary/15 transition-colors"
-                    >
-                      <Play className="w-3.5 h-3.5" /> Open
-                    </button>
-                    <button
-                      onClick={() => removeBookmark(video.id)}
-                      className="h-8 w-8 rounded-lg bg-destructive/10 text-destructive flex items-center justify-center hover:bg-destructive/15 transition-colors"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      )}
+     
 
       {/* ── Tabs: Videos / Notes ── */}
       <div className="flex items-center gap-2 mb-4">
         <FileText className="w-5 h-5 text-primary" />
-        <h2 className="font-bold text-lg">Study History</h2>
+        <h2 className="font-bold text-lg">Your Learning  History</h2>
       </div>
-      <div className="flex gap-1 bg-muted rounded-xl p-1 w-fit mb-6">
-        <button
-          onClick={() => setTab("videos")}
-          className={`px-5 py-2 rounded-lg text-sm font-medium transition-colors ${
-            tab === "videos" ? "bg-card text-foreground shadow-card" : "text-muted-foreground hover:text-foreground"
-          }`}
-        >
-          <Play className="w-4 h-4 inline mr-1.5 -mt-0.5" />
-          Videos Watched
-        </button>
-        <button
-          onClick={() => setTab("notes")}
-          className={`px-5 py-2 rounded-lg text-sm font-medium transition-colors ${
-            tab === "notes" ? "bg-card text-foreground shadow-card" : "text-muted-foreground hover:text-foreground"
-          }`}
-        >
-          <FileText className="w-4 h-4 inline mr-1.5 -mt-0.5" />
-          Notes List
-        </button>
-      </div>
+     
 
       {tab === "videos" && (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -325,27 +187,7 @@ const Dashboard = () => {
         </div>
       )}
 
-      {tab === "notes" && (
-        <div className="space-y-3 max-w-2xl">
-          {allNotes.map((note, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.04 }}
-              className="bg-card rounded-xl shadow-card p-4 flex gap-4 items-start"
-            >
-              <span className="font-mono-timestamp text-xs text-primary bg-primary/10 px-2 py-0.5 rounded-md whitespace-nowrap mt-0.5">
-                {note.time}
-              </span>
-              <div>
-                <p className="text-sm">{note.text}</p>
-                <p className="text-xs text-muted-foreground mt-1">{note.videoTitle} • {note.date}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      )}
+      
     </div>
   );
 };
