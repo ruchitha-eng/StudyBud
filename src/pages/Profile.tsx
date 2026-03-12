@@ -1,13 +1,8 @@
 import { motion } from "framer-motion";
 import { User, Mail, BookOpen } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-const Profile = () => {
-  const navigate = useNavigate();
 
-const handleLogout = () => {
-  localStorage.removeItem("user");
-  navigate("/login");
-};
+
+const Profile = () => {
 return (
   <div className="max-w-3xl mx-auto px-6 py-12 pb-24 md:pb-12">
     <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }}>
@@ -39,9 +34,8 @@ return (
           </div>
         </div>
       </div>
-      <button onClick={handleLogout} className="mt-6 flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg">
-        Sign Out
-      </button>
+      
+  
     </motion.div>
   </div>
 );
