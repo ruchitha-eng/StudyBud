@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 const navItems = [
   { label: "Home", path: "/home", icon: Home },
   { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-  { label: "Settings", path: "/settings", icon: Settings },
+
   { label: "Profile", path: "/profile", icon: User },
+    { label: "Settings", path: "/settings", icon: Settings },
 ];
 
 const Navbar = () => {

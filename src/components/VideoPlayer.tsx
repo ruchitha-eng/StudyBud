@@ -71,6 +71,14 @@ const VideoPlayer = ({ onGenerateSummary, onGenerateQuiz }: VideoPlayerProps) =>
           className="h-10 px-4 rounded-lg bg-primary/10 text-primary text-sm font-medium flex items-center gap-2 hover:bg-primary/15 transition-colors disabled:opacity-50"
         >
           {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <HelpCircle className="w-4 h-4" />}
+          Generate Practice questions
+        </button>
+         <button
+          onClick={() => handleGenerate(onGenerateQuiz, "Quiz")}
+          disabled={loading}
+          className="h-10 px-4 rounded-lg bg-primary/10 text-primary text-sm font-medium flex items-center gap-2 hover:bg-primary/15 transition-colors disabled:opacity-50"
+        >
+          {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <HelpCircle className="w-4 h-4" />}
           Generate Quiz
         </button>
       </div>
