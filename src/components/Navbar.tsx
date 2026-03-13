@@ -3,11 +3,11 @@ import { BookOpen, Home, LayoutDashboard, Settings, User } from "lucide-react";
 import { motion } from "framer-motion";
 
 const navItems = [
-  { label: "Home", path: "/home", icon: Home },
-  { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
+  { label: "", path: "/home", icon: Home },
+  { label: "", path: "/dashboard", icon: LayoutDashboard },
 
-  { label: "Profile", path: "/profile", icon: User },
-    { label: "Settings", path: "/settings", icon: Settings },
+  { label: "", path: "/profile", icon: User },
+    { label: "", path: "/settings", icon: Settings },
 ];
 
 const Navbar = () => {
@@ -48,19 +48,24 @@ const Navbar = () => {
                 </Link>
               </>
             ) : (
-              navItems.map((item) => (
+              navItems.map((item) => {
+                  const Icon = item.icon;
+                  return (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`flex flex-col items-center justify-center px-4 py-2 rounded-lg text-sm font-medium ${
                     location.pathname === item.path
                       ? "text-primary bg-primary/5"
                       : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
+                  }`}>
+                  <Icon size={23} />
+                
                   {item.label}
                 </Link>
-              ))
+              );
+            })
+            
             )}
           </div>
         )}

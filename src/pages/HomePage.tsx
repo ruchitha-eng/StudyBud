@@ -3,7 +3,7 @@ import VideoPlayer from "@/components/VideoPlayer";
 import NotesPanel from "@/components/NotesPanel";
 import AINotes from "@/components/AINotes";
 import { motion, AnimatePresence } from "framer-motion";
-import Quiz from "@/components/Quiz";
+
 import { Button } from "@/components/ui/button";
 import { FileText, HelpCircle } from "lucide-react";
 
@@ -25,7 +25,7 @@ const HomePage = () => {
     setShowQuiz(true);
     setShowSummary(false);
   };
-const [showQuiz1, setShowQuiz1] = useState(false);
+
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-8 pb-24 md:pb-8">
