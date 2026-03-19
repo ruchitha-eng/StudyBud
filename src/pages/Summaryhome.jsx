@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Summary.css";
 
-function Summary() {
+function Summaryhome() {
   const { id } = useParams();
   const [summary, setSummary] = useState("");
 
@@ -27,4 +27,4 @@ function Summary() {
   );
 }
 
-export default Summary;
+export default Summaryhome;

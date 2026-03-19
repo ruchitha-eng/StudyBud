@@ -14,7 +14,7 @@ import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
-import Summary from "./components/Summary";
+import Summaryhome from "./pages/Summaryhome";
 
 const queryClient = new QueryClient();
 
@@ -35,7 +35,7 @@ const AppLayout = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/notes/:id" element={<Notes />} />
-        <Route path="/summary/:id" element={<Summary />} />
+        <Route path="/summary/:id" element={<Summaryhome />} />
       </Routes>
       {showBottomNav && <BottomNav />}
     </>
