@@ -1,0 +1,46 @@
+/* Page container */
+.container {
+  padding: 40px 80px;   /* 🔥 left-right spacing added */
+  background-color: #f5f7fb;
+  min-height: 100vh;
+}
+
+/* Heading */
+.heading {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* Notes list */
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;   /* 🔥 center content width */
+}
+
+/* Each note card */
+.note-card {
+  background: white;
+  padding: 18px 22px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* Timestamp badge */
+.timestamp {
+  display: inline-block;
+  background-color: #e3ecff;
+  color: #2563eb;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* Note text */
+.note-text {
+  font-size: 16px;
+  color: #333;
+}

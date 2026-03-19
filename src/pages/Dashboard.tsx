@@ -174,10 +174,10 @@ const Dashboard = () => {
                     </div>
                   ))}
                 </div>
-                <button className="h-9 px-4 rounded-lg bg-primary/10 text-primary text-sm font-medium hover:bg-primary/15 transition-colors w-full flex items-center justify-center gap-1.5">
+                <button onClick={() => navigate(`/notes/${video.id}`)} className="h-9 px-4 rounded-lg bg-primary/10 text-primary text-sm font-medium hover:bg-primary/15 transition-colors w-full flex items-center justify-center gap-1.5">
                   View Notes <ChevronRight className="w-4 h-4" />
                 </button>
-                <button className="h-9 px-4 rounded-lg bg-primary/10 text-primary text-sm font-medium hover:bg-primary/15 transition-colors w-full flex items-center justify-center gap-1.5 mt-4">
+                <button onClick={() => navigate(`/summary/${video.id}`)} className="h-9 px-4 rounded-lg bg-primary/10 text-primary text-sm font-medium hover:bg-primary/15 transition-colors w-full flex items-center justify-center gap-1.5 mt-4">
                   View Summary <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
